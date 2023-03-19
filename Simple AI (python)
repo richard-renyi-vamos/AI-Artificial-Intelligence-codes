@@ -1,0 +1,24 @@
+# Importing the necessary libraries
+from sklearn import tree
+
+# Defining the training data
+features = [[120, 1], [150, 1], [170, 0], [190, 0]]
+labels = [0, 0, 1, 1]  # 0: apple, 1: orange
+
+# Creating the decision tree classifier
+clf = tree.DecisionTreeClassifier()
+
+# Training the classifier
+clf = clf.fit(features, labels)
+
+# Predicting the class of a new fruit
+weight = input("Enter the weight of the fruit: ")
+texture = input("Enter the texture of the fruit (1 for smooth, 0 for bumpy): ")
+fruit = clf.predict([[weight, texture]])
+
+if fruit == 0:
+    print("The fruit is an apple.")
+else:
+    print("The fruit is an orange.")
+    
+CREATED WITH THE HELP OF CHAT-GPT-4: https://chat.openai.com/chat
