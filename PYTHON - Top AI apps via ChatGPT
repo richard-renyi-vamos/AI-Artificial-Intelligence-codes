@@ -1,0 +1,29 @@
+import openai
+
+# Set up your OpenAI API key
+openai.api_key = 'YOUR_API_KEY'
+
+def get_top_ai_apps():
+    prompt = "List of top AI apps:"
+
+    # Generate a completion using the prompt
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=100,
+        n=10,  # Number of completions to generate
+        stop=None,  # Stop generating completions after this string
+        temperature=0.5,  # Controls the randomness of the output. Lower value produces more focused output.
+    )
+
+    # Extract the generated completions
+    completions = response.choices
+
+    # Print the top AI apps
+    for i, completion in enumerate(completions):
+        print(f"{i + 1}. {completion.text.strip()}")
+
+# Call the function to get the top AI apps
+get_top_ai_apps()
+
+# CREATED WITH THE HELP OF OPEN-AI CHAT GPT: https://chat.openai.com/chat
